@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :integer          not null, primary key
+#  provider         :string
+#  uid              :string
+#  name             :string
+#  oauth_token      :string
+#  avatar           :string
+#  oauth_expires_at :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  photos_count     :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: MyString
+  uid: MyString
+  name: MyString
+  oauth_token: MyString
+  oauth_expires_at: 2015-03-28 20:59:21
+
+two:
+  provider: MyString
+  uid: MyString
+  name: MyString
+  oauth_token: MyString
+  oauth_expires_at: 2015-03-28 20:59:21
