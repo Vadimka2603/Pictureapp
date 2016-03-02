@@ -1,12 +1,11 @@
-- if current_user
-  %li{:id => "@photo-#{@photo.id}"}
-    %span.user
-      = image_tag(@photo.user.avatar_url) if @photo.user.avatar?
-      = link_to @photo.user.name, @photo.user
-    %span.content
-      = image_tag @photo.picture.url if @photo.picture?
-      %h4= @photo.description
-      %br/
-    - if current_user==@photo.user
-      = link_to "Удалить", @photo, method: :delete,      |
-        data: { confirm: "Вы уверены?" }, class: "button22"
+%li{:id => "@photo-#{@photo.id}"}
+  %span.user
+    = image_tag(@photo.user.avatar_url) if @photo.user.avatar?
+    = link_to @photo.user.name, @photo.user
+  %span.content
+    = image_tag @photo.picture.url if @photo.picture?
+    %h4= @photo.description
+    %br/
+  - if current_user==@photo.user
+    = link_to "Удалить", @photo, method: :delete,      |
+      data: { confirm: "Вы уверены?" }, class: "button22"

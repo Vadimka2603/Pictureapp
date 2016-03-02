@@ -21,13 +21,13 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider 
-      user.uid      = auth.uid
-      user.name     = auth.info.name
-      user.remote_avatar_url = auth.info.image
-      user.save
-    end
+  has_secure_password
+  before_save   :downcase_name
+
+  validates :password, :name, presence: true
+  validates :name, uniqueness: true
+
+  def downcase_name #Нижний регистр для адресса преед сохранением
+      self.name = name.downcase
   end
 end

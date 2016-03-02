@@ -4,7 +4,8 @@
       <%= link_to "Моя страница", current_user, class: "button1"%>
   </div>
     <% else %>
-      <%= link_to "Войти как пользователь VK", "/auth/vkontakte", id: "sign_in", class: "button1" %>
+      <%= link_to "Регистрация", "/users/new", id: "sign_in", class: "button1" %>
+      <%= link_to "Войти", "/login", id: "sign_in", class: "button1" %>
     <% end %>
 
 

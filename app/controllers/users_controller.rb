@@ -26,5 +26,19 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
   end
+
+  def create
+    @user = Users::Register.run!(params[:user])
+    if @user.save
+      redirect_to root_url, notice: "Регистрация завершена"
+    else
+      render 'new'
+    end
+  end
+
+  def new
+  	@user = User.new
+  end
+
 end
 
